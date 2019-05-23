@@ -25,6 +25,11 @@
    * [ ] [论剑](misc/论剑.md)   没做出来
    * [ ] [多彩](misc/多彩.md)没做出来
    
+* [流量分析](Flow Analysis.md)
+  
+  * [x] [手机热点](Flow Analysis/手机热点.md)
+
+
 * [代码审计](code audit.md)
   
   * [x] [extract变量覆盖](code audit/extract变量覆盖.md)
@@ -34,10 +39,6 @@
   * [x] [弱类型整数大小比较绕过](code audit/弱类型整数大小比较绕过.md)
   * [x] [数组返回NULL绕过](code audit/数组返回NULL绕过.md)
   
-* [流量分析](Flow Analysis.md)
-  
-  * [x] [手机热点](Flow Analysis/手机热点.md)
-  
 * [加密](encryption.md)
 
   * [x] [进制转换](encryption/进制转换.md)
@@ -45,11 +46,8 @@
   * [x] [Crack it](encryption/Crack it.md)
   * [ ] [python(N1CTF)](encryption/python.md)   没做出来
   
-* [流量分析](Flow Analysis.md)
-
-   * [x] [手机热点](Flow Analysis/手机热点.md)
-
-   
+  
+  
 
 
 
